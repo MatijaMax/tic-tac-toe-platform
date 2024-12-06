@@ -1,0 +1,25 @@
+<ng-container *ngIf="user">
+    <div class="container">
+        <div class="card">
+            <div class="row profile-information">
+                <div class="column">
+                    <div class="name">
+                        {{ user.name }} {{ user.surname }}
+                    </div>
+                    <div class="username">
+                         {{ user.username }}
+                    </div>
+                    <div class="points">
+                        Points: {{ user.points }}
+                    </div>
+                    <div class="streak">
+                        Streak: {{ user.streak }}
+                    </div>
+                    <div class="streak">
+                        <button class="btn" (click)="navigateToHistory()">Match History</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

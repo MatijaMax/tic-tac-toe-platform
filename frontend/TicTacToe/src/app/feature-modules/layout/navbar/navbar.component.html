@@ -1,0 +1,238 @@
+<div
+    class="navbar"
+    [ngClass]="{ 'navbar-not-home': isHome === false }"
+    id="nav"
+>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@400;500;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    />
+    <div class="navbar-logo" [routerLink]="['']">
+        <img class="navbar-logo-icon" src="/assets/icons/tttmax.png" />
+        <div class="navbar-logo-text-first">T</div>
+        <div class="navbar-logo-text-odd">i</div>
+        <div class="navbar-logo-text-even">c </div>
+        <div class="navbar-logo-text-odd">T</div>
+        <div class="navbar-logo-text-even">a</div>
+        <div class="navbar-logo-text-odd">c</div>
+        <div class="navbar-logo-text-even">T</div>
+        <div class="navbar-logo-text-odd">o</div>
+        <div class="navbar-logo-text-even">e</div>
+    </div>
+    <div class="navbar-right">
+        <div class="navbar-menu">
+            <!-- PLAY MENU -->
+            <div
+                class="navbar-menu-item"
+                *ngIf="
+                    user && user.username !== '' 
+                "
+            >
+                <div class="navbar-menu-item-content">
+                    <fa-icon
+                        class="navbar-menu-item-content-icon"
+                        [class.color-white]="isHome"
+                        [icon]="faGamepad"
+                    />
+                    <div class="navbar-menu-item-content-text">PLAY</div>
+                    <fa-icon
+                        class="navbar-menu-item-content-arrow"
+                        [class.color-white]="isHome"
+                        [icon]="faChevronDown"
+                    />
+                </div>
+                <div class="navbar-submenu">
+                    <div class="navbar-submenu-item" [routerLink]="['singleplayer']">
+                        <fa-icon
+                            class="navbar-submenu-item-icon"
+                            [icon]="faUser"
+                        />
+                        <div class="navbar-submenu-item-text"> Singleplayer</div>
+                    </div>
+                    <div
+                        class="navbar-submenu-item"
+                        [routerLink]="['multiplayer']"
+                    >
+                        <fa-icon
+                            class="navbar-submenu-item-icon"
+                            [icon]="faUsers"
+                        />
+                        <div class="navbar-submenu-item-text">Multiplayer</div>
+                    </div>
+                    <div
+                        class="navbar-submenu-item"
+                        [routerLink]="['ai']"
+                    >
+                        <fa-icon
+                            class="navbar-submenu-item-icon"
+                            [icon]="faRobot"
+                        />
+                        <div class="navbar-submenu-item-text">AI</div>
+                    </div>
+                </div>
+                <div
+                    class="navbar-menu-item-selected-indicator"
+                    [class.background-color-white]="isHome"
+                ></div>
+            </div>
+
+            <!-- HELP MENU -->
+            <div class="navbar-menu-item">
+                <div class="navbar-menu-item-content">
+                    <fa-icon
+                        class="navbar-menu-item-content-icon"
+                        [class.color-white]="isHome"
+                        [icon]="faQuestionCircle"
+                    />
+                    <div class="navbar-menu-item-content-text">Help</div>
+                    <fa-icon
+                        class="navbar-menu-item-content-arrow"
+                        [class.color-white]="isHome"
+                        [icon]="faChevronDown"
+                    />
+                </div>
+                <div class="navbar-submenu">
+                    <div class="navbar-submenu-item" [routerLink]="['manual']">
+                        <fa-icon
+                            class="navbar-submenu-item-icon"
+                            [icon]="faQuestionCircle"
+                        />
+                        <div class="navbar-submenu-item-text">Manual</div>
+                    </div>
+                    <div class="navbar-submenu-item">
+                        <fa-icon
+                            class="navbar-submenu-item-icon"
+                            [icon]="faPhone"
+                            [routerLink]="['https://www.se.com/ww/en/']"
+                        />
+                        <a
+                        class="navbar-submenu-item-text"
+                        href="https://www.se.com/ww/en/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Contact us
+                      </a>
+                    </div>
+                </div>
+                <div
+                    class="navbar-menu-item-selected-indicator"
+                    [class.background-color-white]="isHome"
+                ></div>
+            </div>
+
+            <!-- SETTINGS MENU -->
+            <div class="navbar-menu-item">
+                <div class="navbar-menu-item-content">
+                    <fa-icon
+                        class="navbar-menu-item-content-icon"
+                        [class.color-white]="isHome"
+                        [icon]="faSun"
+                    />
+                    <div class="navbar-menu-item-content-text">Appearance</div>
+                    <fa-icon
+                        class="navbar-menu-item-content-arrow"
+                        [class.color-white]="isHome"
+                        [icon]="faChevronDown"
+                    />
+                </div>
+                <div class="navbar-submenu">
+                    <div class="navbar-submenu-item">
+                        <fa-icon
+                            class="navbar-submenu-item-icon"
+                            [icon]="faSun"
+                        />
+                        <div class="navbar-submenu-item-text">Appearance:</div>
+                        <div class="navbar-theme" (click)="toggleTheme()">
+                            <div
+                                class="navbar-theme-switch"
+                                [class.navbar-theme-switch-left]="
+                                    getTheme() === 'light'
+                                "
+                                [class.navbar-theme-switch-right]="
+                                    getTheme() === 'dark'
+                                "
+                            ></div>
+                            <fa-icon class="navbar-theme-sun" [icon]="faSun" />
+                            <fa-icon
+                                class="navbar-theme-moon"
+                                [icon]="faMoon"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="navbar-menu-item-selected-indicator"
+                    [class.background-color-white]="isHome"
+                ></div>
+            </div>
+
+            <!-- USER MENU -->
+            <div class="navbar-menu-item" *ngIf="user && user.username !== ''">
+                <div class="navbar-menu-item-content">
+                    <fa-icon
+                        class="navbar-menu-item-content-icon"
+                        [class.color-white]="isHome"
+                        [icon]="faUser"
+                    />
+                    <div class="navbar-menu-item-content-text">
+                        {{ user.username }}
+                    </div>
+                    <fa-icon
+                        class="navbar-menu-item-content-arrow"
+                        [class.color-white]="isHome"
+                        [icon]="faChevronDown"
+                    />
+                </div>
+                <div class="navbar-submenu">
+                    <div
+                        class="navbar-submenu-item"
+                        [routerLink]="['profile']"
+                    
+                    >
+                        <fa-icon
+                            class="navbar-submenu-item-icon"
+                            [icon]="faUser"
+                        />
+                        <div class="navbar-submenu-item-text">Profile</div>
+                    </div>
+                    <div
+                        class="navbar-submenu-item"
+                        [routerLink]="['leaderboard']"
+                        *ngIf="user"
+                    >
+                        <fa-icon
+                            class="navbar-submenu-item-icon"
+                            [icon]="faTrophy"
+                        />
+                        <div class="navbar-submenu-item-text">
+                            Leaderboard
+                        </div>
+                    </div>
+                    <div class="navbar-submenu-item" (click)="onLogout()">
+                        <fa-icon
+                            class="navbar-submenu-item-icon"
+                            [icon]="faRightFromBracket"
+                        />
+                        <div class="navbar-submenu-item-text">Logout</div>
+                    </div>
+                </div>
+                <div
+                    class="navbar-menu-item-selected-indicator"
+                    [class.background-color-white]="isHome"
+                ></div>
+            </div>
+            <div
+                class="navbar-button-panel"
+                *ngIf="user && user.username === ''"
+            >
+                <div class="navbar-log-in-button" (click)="onLogin()">
+                    <div class="navbar-log-in-button-text">Login</div>
+                </div>
+                <div class="navbar-register-button" (click)="onRegister()">
+                    <div class="navbar-register-button-text">Register</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

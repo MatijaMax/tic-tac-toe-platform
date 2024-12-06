@@ -1,0 +1,19 @@
+<div *ngFor="let record of gameRecords" class="wrapper">
+    <div class="tab-list" #tabList>
+        <div class="tab">
+            <fa-icon [icon]="faUser"></fa-icon> Player 1: {{ record.player1 }}
+        </div>
+        <div class="tab">
+            <fa-icon [icon]="faUser"></fa-icon> Player 2: {{ record.player2 }}
+        </div>
+        <div class="tab">
+            <fa-icon [icon]="faTrophy"></fa-icon> Winner: {{ record.winner }}
+        </div>
+        <div class="tab">
+            <fa-icon [icon]="faMoneyBill"></fa-icon> Win Points: {{ record.winPoints }}
+        </div>
+        <div class="tab">
+            <fa-icon [icon]="faMoneyBill"></fa-icon> Loss Points: {{ record.lossPoints }}
+        </div>
+    </div>
+</div>

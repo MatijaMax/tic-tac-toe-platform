@@ -1,0 +1,30 @@
+main{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 0px;
+    
+}
+app-square{
+    border: 1px rgba(var(--clr-primary-700), 1) solid;
+    height: 200px;
+    background-color: aliceblue;
+    
+}
+h2{
+    font-size: 40px;
+    text-align: center;
+    color: rgb(var(--clr-primary-500));
+}
+
+h1{
+    color: rgb(var(--clr-primary-500));
+}
+
+.ttt-center {
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    height: 100vh;          /* Full viewport height */
+    background-color: transparent; /* Optional background color */
+}

@@ -1,0 +1,13 @@
+<div *ngFor="let player of board" class="wrapper">
+    <div class="tab-list" #tabList>
+        <div class="tab">
+            <fa-icon [icon]="faUser"></fa-icon> USERNAME: {{ player.username }}
+        </div>
+        <div class="tab">
+            <fa-icon [icon]="faMoneyBill"></fa-icon> POINTS: {{ player.points }}
+        </div>
+        <div class="tab">
+            <fa-icon [icon]="faStar"></fa-icon> WINSTREAK: {{ player.streak }}
+        </div>
+    </div>
+</div>
